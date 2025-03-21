@@ -12,6 +12,7 @@ public interface Empilhavel { // Stackable
 	void atualizar(Object dado); // update
 
 	// Operações auxiliares
+
 	boolean estaCheia(); // isFull -> overflow
 
 	boolean estaVazia(); // isEmpty -> underflow
