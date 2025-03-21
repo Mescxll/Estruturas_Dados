@@ -1,7 +1,9 @@
 package pilha;
+
 public class PilhaEstaticaPrincipal {
     public static void main(String[] args) {
-        //PilhaEstatica p1 = new PilhaEstatica(30); -> criando por meio da classe concreta
+        // PilhaEstatica p1 = new PilhaEstatica(30); -> criando por meio da classe
+        // concreta
         Empilhavel pilha = new PilhaEstatica(30); // -> por meio da interface
         pilha.empilhar("Instituto");
         pilha.empilhar("Federal");
@@ -9,8 +11,8 @@ public class PilhaEstaticaPrincipal {
         System.out.println("Espiar:" + pilha.espiar());
 
         pilha.empilhar("de");
-		pilha.empilhar("Educação");
-		pilha.empilhar("Ciência");
+        pilha.empilhar("Educação");
+        pilha.empilhar("Ciência");
         pilha.empilhar("e");
 
         System.out.println("Espiar:" + pilha.espiar());
@@ -22,7 +24,7 @@ public class PilhaEstaticaPrincipal {
         pilha.empilhar("da");
         pilha.empilhar("Bahia");
         pilha.atualizar("Pará");
-        
+
         pilha.empilhar(pilha.desempilhar());
 
         pilha.empilhar(conteudo);

@@ -1,20 +1,20 @@
 //Stack (pilha) - Contrato (código genérico)
-
 public interface Empilhavel {
-    //Operações principais
+	// Operações principais
 
-    void empilhar(Object dado);		//push
+	void empilhar(Object dado); // push
 
-    Object desempilhar();			//pop
+	Object desempilhar(); // pop
 
-    Object retornarTopo();			//top
+	Object retornarTopo(); // top //espiar(peek)
 
-    void atualizar(Object dados);	//update
+	void atualizar(Object dados); // update
 
-    //Operações auxiliares
-    Boolean estaCheia();			//isFull -> overflow
+	// Operações auxiliares
 
-    Boolean estaVazia();			//isEmpty -> underflow
+	Boolean estaCheia(); // isFull -> overflow
 
-    String imprimir();				//print
+	Boolean estaVazia(); // isEmpty -> underflow
+
+	String imprimir(); // print
 }
