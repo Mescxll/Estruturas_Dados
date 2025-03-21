@@ -2,3 +2,4 @@
 *.jar
 *.bak
 *.project
+.vscode/
