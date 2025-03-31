@@ -20,7 +20,7 @@ public class PilhaEstatica implements Empilhavel{
             ponteiroTopo++;
             dados[ponteiroTopo]=dado;
         }else{
-            System.out.println("Stack is full!"); 
+            System.err.println("Stack is full!"); 
             //Criar excessão de OverFlow
         }
     }
@@ -33,7 +33,7 @@ public class PilhaEstatica implements Empilhavel{
             //dados[ponteiroTopo] = null; -> se desejar apagar o dado desempilhado
             ponteiroTopo--;
         }else{
-            System.out.println("Stack is empty!");   
+            System.err.println("Stack is empty!");   
             //Criar excessão de UnderFlow    
         }
         return aux;
@@ -45,7 +45,7 @@ public class PilhaEstatica implements Empilhavel{
         if(!estaVazia()) {         
             aux = dados[ponteiroTopo];
         }else{
-            System.out.println("Stack is empty!");           
+            System.err.println("Stack is empty!");           
         }
         return aux;
     }
@@ -55,7 +55,7 @@ public class PilhaEstatica implements Empilhavel{
         if(!estaVazia()){          
             dados[ponteiroTopo]=dado;
         }else{
-            System.out.println("Stack is empty!"); 
+            System.err.println("Stack is empty!"); 
         }
     }
 

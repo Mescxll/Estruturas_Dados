@@ -9,14 +9,14 @@ public class PilhaEstaticaPrincipal {
         pilha.empilhar("Instituto");
         pilha.empilhar("Federal");
 
-        System.out.println("Espiar: " + pilha.espiar());
+        System.out.println("Topo: " + pilha.espiar());
 
         pilha.empilhar("de");
         pilha.empilhar("Educação");
         pilha.empilhar("Ciência");
         pilha.empilhar("e");
 
-        System.out.println("Espiar: " + pilha.espiar());
+        System.out.println("Topo: " + pilha.espiar());
 
         Object conteudo = pilha.desempilhar(); // Retira "e" e o adiciona em 'conteudo'
         pilha.desempilhar(); // Retira "Ciência"

@@ -1,6 +1,6 @@
 package pilha_dupla;
 
-public interface Empilhavel { 
+public interface EmpilhavelDupla { 
 	// Operações principais
 
 	void empilhar1(Object dado); 

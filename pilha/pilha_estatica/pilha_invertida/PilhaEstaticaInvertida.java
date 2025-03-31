@@ -1,6 +1,6 @@
 package pilha_invertida;
 
-public class PilhaEstaticaInvertida implements Empilhavel {
+public class PilhaEstaticaInvertida implements EmpilhavelInvertida {
     private Object[] dados;
     private int ponteiroTopo;
 
@@ -19,7 +19,7 @@ public class PilhaEstaticaInvertida implements Empilhavel {
             ponteiroTopo--;
             dados[ponteiroTopo] = dado;
         } else {
-            System.out.println("Stack is full!");
+            System.err.println("Stack is full!");
         }
     }
 
@@ -30,7 +30,7 @@ public class PilhaEstaticaInvertida implements Empilhavel {
             aux = dados[ponteiroTopo];
             ponteiroTopo++;
         } else {
-            System.out.println("Stack is empty!");
+            System.err.println("Stack is empty!");
         }
         return aux;
     }
@@ -41,7 +41,7 @@ public class PilhaEstaticaInvertida implements Empilhavel {
         if (!estaVazia()) {
             aux = dados[ponteiroTopo];
         } else {
-            System.out.println("Stack is empty!");
+            System.err.println("Stack is empty!");
         }
         return aux;
     }
@@ -51,7 +51,7 @@ public class PilhaEstaticaInvertida implements Empilhavel {
         if (!estaVazia()) {
             dados[ponteiroTopo] = dado;
         } else {
-            System.out.println("Stack is empty!");
+            System.err.println("Stack is empty!");
         }
     }
 
@@ -68,7 +68,7 @@ public class PilhaEstaticaInvertida implements Empilhavel {
     @Override
     public String imprimir() {
         String aux = "[";
-        for (int i = ponteiroTopo; i <= dados.length; i++) {
+        for (int i = ponteiroTopo; i <= dados.length-1; i++) {
             if (i == dados.length - 1) {
                 aux += dados[i];
             } else {
