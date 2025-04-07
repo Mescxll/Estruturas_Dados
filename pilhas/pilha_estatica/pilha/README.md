@@ -1,5 +1,7 @@
 # Anotações de Aula - ED 2025.1
 
+### Pilha
+
 ```
 PILHA (STACK)
 ------------

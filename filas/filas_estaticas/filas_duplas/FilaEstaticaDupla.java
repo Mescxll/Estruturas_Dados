@@ -20,9 +20,12 @@ public class FilaEstaticaDupla implements DuplamenteEnfileravel {
     @Override
     public void enfileirarInicio(Object dado) {
         if (!estaCheia()) {
-            ponteiroFim = ((ponteiroFim - 1) + dados.length) % dados.length;
-            dados[ponteiroFim] = dado;
+            ponteiroInicio = retroceder(ponteiroInicio);
+            dados[ponteiroInicio] = dado;
             quantidade++;
+            if(estaVazia()){
+                ponteiroFim = ponteiroInicio;
+            }
         } else {
             System.err.println("Queue is Full!");
         }
@@ -31,9 +34,12 @@ public class FilaEstaticaDupla implements DuplamenteEnfileravel {
     @Override
     public void enfileirarFim(Object dado) {
         if (!estaCheia()) {
-            ponteiroFim = (ponteiroFim + 1) % dados.length;
+            ponteiroFim = avancar(ponteiroFim);
             dados[ponteiroFim] = dado;
             quantidade++;
+            if(estaVazia()){
+                ponteiroInicio = ponteiroFim;
+            }
         } else {
             System.err.println("Queue is Full!");
         }
@@ -44,7 +50,7 @@ public class FilaEstaticaDupla implements DuplamenteEnfileravel {
         Object aux = null;
         if (!estaVazia()) {
             aux = dados[ponteiroInicio];
-            ponteiroInicio = (ponteiroInicio + 1) % dados.length;
+            ponteiroInicio = avancar(ponteiroInicio);
             quantidade--;
         } else {
             System.err.println("Queue is Empty!!!");
@@ -57,7 +63,7 @@ public class FilaEstaticaDupla implements DuplamenteEnfileravel {
         Object aux = null;
         if (!estaVazia()) {
             aux = dados[ponteiroFim];
-            ponteiroInicio = ((ponteiroFim + 1) + dados.length) % dados.length;
+            ponteiroFim = retroceder(ponteiroFim);
             quantidade--;
         } else {
             System.err.println("Queue is Empty!!!");
@@ -116,29 +122,40 @@ public class FilaEstaticaDupla implements DuplamenteEnfileravel {
     }
 
     @Override
-    public String imprimirTrasFrente() {
+    public String imprimirFrenteTras() {
         String aux = "[";
-        for (int i = ponteiroFim; i < ponteiroFim - quantidade; i--) {
-            if (i == (quantidade + ponteiroInicio) - 1) {
-                aux += dados[i % dados.length]; // % - Volta para o inicio, se alcançar o fim
+        int ponteiroAux = ponteiroInicio;
+        for (int i = 0; i < quantidade; i++) {
+            if (i == quantidade - 1) {
+                aux += dados[ponteiroAux]; 
             } else {
-                aux += dados[i] + ",";
+                aux += dados[ponteiroAux] + ",";
             }
+            ponteiroAux = avancar(ponteiroAux);
         }
         return aux + "]";
     }
 
     @Override
-    public String imprimirFrenteTras() {
+    public String imprimirTrasFrente() {
         String aux = "[";
-        for (int i = ponteiroInicio; i < quantidade + ponteiroInicio; i++) {
-            if (i == (quantidade + ponteiroInicio) - 1) {
-                aux += dados[i % dados.length]; // % - Volta para o inicio, se alcançar o fim
+        int ponteiroAux = ponteiroFim;
+        for (int i = 0; i < quantidade; i++) {
+            if (i == quantidade - 1) {
+                aux += dados[ponteiroAux]; 
             } else {
-                aux += dados[i % dados.length] + ",";
+                aux += dados[ponteiroAux] + ",";
             }
+            ponteiroAux = retroceder(ponteiroAux);
         }
         return aux + "]";
     }
 
+    private int avancar(int ponteiro){
+        return (ponteiro+1)%dados.length;
+    }
+
+    private int retroceder(int ponteiro){
+        return ((ponteiro-1)+dados.length)%dados.length;
+    }
 }

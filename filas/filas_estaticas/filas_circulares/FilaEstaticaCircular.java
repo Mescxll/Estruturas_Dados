@@ -20,9 +20,12 @@ public class FilaEstaticaCircular implements Enfileiravel{
     @Override
     public void enfileirar(Object dado) {
         if(!estaCheia()){
-            ponteiroFim = (ponteiroFim+1)%dados.length;
+            ponteiroFim = avancar(ponteiroFim);
             dados[ponteiroFim] = dado;
             quantidade++;
+            if(estaVazia()){
+                ponteiroInicio = ponteiroFim;
+            }
         }else{
             System.err.println("Queue is Full!");
         }
@@ -33,7 +36,7 @@ public class FilaEstaticaCircular implements Enfileiravel{
         Object aux = null;
         if(!estaVazia()){
             aux = dados[ponteiroInicio];
-            ponteiroInicio = (ponteiroInicio+1)%dados.length;
+            ponteiroInicio = avancar(ponteiroInicio);
             quantidade--;
         }else{
             System.err.println("Queue is Empty!!!");
@@ -83,13 +86,19 @@ public class FilaEstaticaCircular implements Enfileiravel{
     @Override
     public String imprimir() {
         String aux = "[";
-        for(int i = ponteiroInicio;i < quantidade + ponteiroInicio;i++){
-            if (i == (quantidade+ponteiroInicio)-1){
-                aux += dados[i%dados.length]; //% - Volta para o inicio, se alcançar o fim
+        int ponteiroAux = ponteiroInicio;
+        for(int i = 0; i < quantidade; i++){
+            if (i == quantidade-1){
+                aux += dados[ponteiroAux]; //% - Volta para o inicio, se alcançar o fim
             } else {
-                aux += dados[i] + ",";
+                aux += dados[ponteiroAux] + ",";
             }
+            ponteiroAux = avancar(ponteiroAux);
         }
         return aux + "]";
     } 
+
+    private int avancar(int ponteiro){
+        return (ponteiro+1)%dados.length;
+    }
 }
