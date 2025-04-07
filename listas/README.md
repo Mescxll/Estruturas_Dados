@@ -5,6 +5,6 @@
 Toda Pilha e toda Fila são listas.
 Porém nem todas as Listas são Pilhas ou Filas
 
-- Lista -> conjunto (op. em qualquer local)
---- Pilhas -> subconjunto (op. no extremo)
---- Filas -> subconjunto (op. nos extremos)
+- Lista -> conjunto (operações em qualquer local)  
+  - Pilhas -> subconjunto (operações em um extremo)
+  - Filas -> subconjunto (operações nos dois extremos)
