@@ -1,8 +1,8 @@
 # Fila
 
-Fila(Queue)
-Fila Cicular(Cycle Queue)
-Fila com Dupla Terminação
+- Fila(Queue)
+- Fila Cicular(Cycle Queue)
+- Fila com Dupla Terminação
 
 ```
 Fila ------------------------------------
@@ -11,9 +11,9 @@ Fila ------------------------------------
           inicio           fim
 ```
 
-Quem chega vai para o fim. Quem entra prmeiro, sai primeiro. (FIFO)
+Quem chega vai para o fim. Quem entra primeiro, sai primeiro. (FIFO)
 
-Caracteristica: Enfileiravel
+Característica: Enfileirável
 
 ```
 enfileirar ->     C REATE (enqueue)
@@ -25,10 +25,11 @@ atualizar ->      U PDATE (update)
 desenfileirar ->  D ELETE (dequeue)
 ```
 
-O tempo cresce linearmente
-O tempo para chegar em qualquer elemento é o mesmo : Ordem de Complexidade
-0(1)
-0(n)
+### Ordem de Complexidade
+
+0(1) - tempo para acessar ou processar qualquer elemento da estrutura de dados é constante
+
+0(n) - tempo para acessar ou processar qualquer elemento da estrutura de dados depende diretamente do número de elementos na estrutura(linear)
 
 ### Lógica de circularidade: 
 Se x<y: x % y = x sempre.
