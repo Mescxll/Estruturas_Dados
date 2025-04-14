@@ -17,9 +17,9 @@ public interface Listavel {
     boolean contem(Object dado);                    
     
     //Extras
-    //int primeiraOcorrencia(Object dado); //Quando não existe retorna -1
+    int primeiraOcorrencia(Object dado); //Quando não existe retorna -1
     //int ultimaOcorrencia(Object dado);
-    //void limpar();
+    void limpar();
 
     boolean estaCheia();
     boolean estaVazia();
