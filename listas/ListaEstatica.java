@@ -25,13 +25,15 @@ public class ListaEstatica implements Listavel {
                 int x = ponteiroFim;
                 int y = avancar(x);
                 for(int i = 0; i < quantidade - posicao; i++){
-                    dados[x] = dados[y];
-                    x = retroceder(x);
-                    y = retroceder(y);
+                    dados[y] = dados[x];
+                    y = x;
+                    x = retroceder(x);                  
                 }
                 dados[posicaoFisica] = dado; //dados[x] = dado;
+                ponteiroFim = avancar(ponteiroFim);
                 quantidade++;
-                avancar(ponteiroFim);
+            }else{
+                System.err.println("Invalid index!");
             }
         }else{
             System.err.println("List is Full!");
@@ -41,7 +43,8 @@ public class ListaEstatica implements Listavel {
     @Override
     public void anexar(Object dado) { //Igual a enfileirar da Fila Estatica Circular
         if(!estaCheia()){    
-            dados[(ponteiroFim+1)%dados.length] = dado; //avancar
+            ponteiroFim = avancar(ponteiroFim);
+            dados[ponteiroFim] = dado; //avancar
             quantidade++;
         }else{
             System.err.println("List is Full!");
@@ -157,7 +160,7 @@ public class ListaEstatica implements Listavel {
         return aux;     
     }
 
-     @Override
+    @Override
     public boolean estaCheia() {
         return (quantidade == dados.length);
     }
@@ -170,19 +173,19 @@ public class ListaEstatica implements Listavel {
     @Override
     public String imprimir() {
         String aux = "[";
-        for(int i = ponteiroInicio;i < quantidade + ponteiroInicio;i++){
-            if (i == (quantidade+ponteiroInicio)-1){
-                aux += dados[i%dados.length]; //% - Volta para o inicio, se alcançar o fim
+        int ponteiroAux = ponteiroInicio;
+        for (int i = 0; i < quantidade; i++) {
+            if (i == quantidade-1){
+                aux += dados[ponteiroAux]; 
             } else {
-                aux += dados[i] + ",";
+                aux += dados[ponteiroAux] + ",";
             }
+            ponteiroAux = avancar(ponteiroAux); 
         }
         return aux + "]";
     } 
 
-   
     //private boolean comparator(equals()){
-
     //}
 
     private int mapeamento(int posicaoLogica){
