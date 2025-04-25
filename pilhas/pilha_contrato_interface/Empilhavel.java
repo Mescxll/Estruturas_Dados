@@ -1,3 +1,5 @@
+package pilhas.pilha_contrato_interface;
+
 //Stack (pilha) - Contrato (código genérico)
 public interface Empilhavel {
 	// Operações principais
