@@ -73,6 +73,12 @@ public class FilaComPilhas implements Enfileiravel{
 
     @Override
     public String imprimir() {
-        return p1.imprimir();
+        String impressao;
+        while(!p1.estaVazia())
+            p2.empilhar(p1.desempilhar());  
+        impressao = p2.imprimir();
+        while(!p2.estaVazia())
+            p1.empilhar(p2.desempilhar());
+        return impressao;
     }    
 }
