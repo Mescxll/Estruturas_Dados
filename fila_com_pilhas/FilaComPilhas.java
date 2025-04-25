@@ -4,16 +4,16 @@ import filas.Enfileiravel;
 import pilha.Empilhavel;
 import pilha.PilhaEstatica;
 
-public class FilasComPilhas implements Enfileiravel{
+public class FilaComPilhas implements Enfileiravel{
     private Empilhavel p1;
     private Empilhavel p2;
 
-    public FilasComPilhas(int tamanho){
+    public FilaComPilhas(int tamanho){
         p1 = new PilhaEstatica(tamanho);
         p2 = new PilhaEstatica(tamanho);
     }
 
-    public FilasComPilhas(){
+    public FilaComPilhas(){
         this(10);                      
     }
 
@@ -38,14 +38,16 @@ public class FilasComPilhas implements Enfileiravel{
 
     @Override
     public void atualizarFim(Object dado) {
-        // TODO Auto-generated method stub
-        
+        p1.atualizar(dado);    
     }
 
     @Override
     public void atualizarInicio(Object dado) {
-        // TODO Auto-generated method stub
-        
+        while(!p1.estaVazia())
+            p2.empilhar(p1.desempilhar());
+        p2.atualizar(dado);
+        while(!p2.estaVazia())
+            p1.empilhar(p2.desempilhar());    
     }
 
     @Override
@@ -71,9 +73,6 @@ public class FilasComPilhas implements Enfileiravel{
 
     @Override
     public String imprimir() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    
+        return p1.imprimir();
+    }    
 }
