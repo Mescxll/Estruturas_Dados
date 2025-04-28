@@ -1,0 +1,65 @@
+Prova Adaptada para Java
+
+Instruções para a seleção das Questões:
+Número aleatório - 25
+soma = (Somatório dos números individuais de matrícula) + NA
+soma = 22+25 = 47
+Questão 1: (47*1) % 6     -> 5
+Questão 2: (47*2) % 20    -> 14
+Questão 3: (47*3) % 20    -> 1
+
+Questão 1:
+Defina uma interface em Kotlin com as operações necessárias (nome da operação, parâmetros de
+entrada e tipo de retorno(se necessário)) e a descrição destas operações, para implementar, a
+atividade indicada, utilizando a estrutura de dados do tipo Lista Estática.:
+0. Controle de contatos em um aplicativo de telefone.
+1. Controle de itens em um carrinho de compras online.
+2. Controle de registros de pacientes em um sistema de saúde.
+3. Controle de tarefas em um aplicativo de lista de afazeres.
+4. Controle de encomendas em um sistema de entregas.
+*5. Controle de itens em um catálogo de produtos.
+
+Questões 2 e 3:
+Considerar como base o seguinte código:
+//arquivo ListaEstaticaCircular.kt
+class ListaEstaticaCircular(val tamanho: Int = 10) {
+    private var dados: Array<Any?> = arrayOfNulls(tamanho)
+    private var quantidade = 0
+    private var ponteiroInicio = 0
+    private var ponteiroFim = -1
+    fun estaCheia(): Boolean { return quantidade == dados.size}
+    fun estaVazia(): Boolean { return quantidade == 0 }
+    //implementação dos seus métodos referentes as questões 2 e 3 aqui.
+}
+
+C (CREATE/CRIAR/INSERIR)
+0. Inserir um dado no início de uma Lista Estática Circular.
+*1. Inserir um dado no fim de uma Lista Estática Circular.
+2. Inserir um dado numa posição lógica específica de uma Lista Estática Circular.
+
+R (READ/LER/BUSCAR)
+3. Buscar um dado do início de uma Lista Estática Circular.
+4. Buscar um dado do fim de uma Lista Estática Circular.
+5. Buscar um dado de uma posição lógica específica em uma Lista Estática Circular.
+6. Buscar todos os dados de uma Lista Estática Circular.
+7. Verificar a posição lógica da primeira ocorrência de um determinado dado em uma Lista Estática
+Circular.
+8. Verificar a posição lógica da última ocorrência de um determinado dado em uma
+Lista Estática Circular.
+
+U (UPDATE/ATUALIZAR/MODIFICAR)
+9. Atualizar o dado do início de uma Lista Estática Circular.
+10. Atualizar o dado do fim de uma Lista Estática Circular.
+11. Atualizar uma posição lógica específica de uma Lista Estática Circular.
+12. Atualizar todos os dados de uma Lista Estática Circular.
+
+D (DELETE/APAGAR/REMOVER)
+13. Apagar um dado do início de uma Lista Estática Circular.
+*14. Apagar um dado do fim de uma Lista Estática Circular.
+15. Apagar um dado uma posição lógica específica de uma Lista Estática Circular.
+16. Apagar todos os dados de uma Lista Estática Circular.
+
+S (SORT/ORDENAR/ORGANIZAR)
+17. Ordenar os dados de forma crescente de uma Lista Estática Circular.
+18. Ordenar os dados de forma decrescente de uma Lista Estática Circular.
+19. Inverter os dados de uma Lista Estática Circular.

@@ -1,0 +1,28 @@
+Prova - Tipo 2
+
+QUESTÕES //Modificada para Java 
+
+1. Defina uma interface em Kotlin com as operações necessárias (nome da 
+operação, parâmetros de entrada e tipo de retorno(se necessário)) e a descrição 
+destas operações, para implementar um controle de reservas de hoteis, utilizando a 
+estrutura de dados do tipo Lista. É necessário gerir a lista de reservas, com detalhes 
+como data de entrada, saída e serviços adicionais solicitados pelos clientes. 
+
+Considerar o seguinte código como base para a resolução das Questões 2 e 3:  
+class QuestaoX {  
+    private var dados: Array<Any?>  
+    private var quantidade = 0 
+    private var ponteiroInicio = 0 
+    private var ponteiroFim = -1 
+    constructor (tamanho: Int) { dados = arrayOfNulls(tamanho) } 
+    fun estaCheia(): Boolean { return quantidade == dados.size}  
+    fun estaVazia(): Boolean { return quantidade == 0 }  
+    //seu código 
+}  
+
+2. Apagar um dado numa posição lógica específica de uma Lista Estática Circular, 
+fechando o espaço criado, movendo os dados a partir do início, em vez de a partir 
+do fim, como visto em sala de aula. 
+
+3. Imprimir os dados de uma Lista Estática Circular, a partir de uma posição lógica 
+específica informada pelo usuário, até o fim.
