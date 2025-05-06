@@ -1,14 +1,12 @@
 # Anotações de Aula - ED 2025.1
 
-### Nodos 
-
-#### Objetos Ligados (Nodos)
+### Nodos (Objetos Ligados)
 
 Dentro de um espaço eu tenho um dado e um ponteiro -> Objetos ligados -> Nodo 
 
 - Simplesmente ligada ou ligada ou encadeada (única ligação)
 - Duplamente ligada ou duplamente encadeada
-´´´
+```
 Nodo -> encadeado
 Nodo Duplo -> duplamente encadeado
 
@@ -30,4 +28,4 @@ Simplesmente encadeado:
 ||  | |        ||   
 |---- ----------|
 -----------------
-´´´
+```
