@@ -35,3 +35,7 @@ public interface Questao1 {
     //Imprimir catálogo
     String imprimirCatalogo();
 }
+
+class Produto{
+
+}
