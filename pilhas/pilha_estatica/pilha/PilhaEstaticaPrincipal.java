@@ -1,4 +1,4 @@
-package pilha;
+package pilha_estatica.pilha;
 
 public class PilhaEstaticaPrincipal {
     public static void main(String[] args) {

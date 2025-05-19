@@ -3,3 +3,4 @@
 *.bak
 *.project
 .vscode/
+/bin/

@@ -1,4 +1,4 @@
-package pilha_invertida;
+package pilha_estatica.pilha_invertida;
 
 public interface EmpilhavelInvertida {
     // Operações principais

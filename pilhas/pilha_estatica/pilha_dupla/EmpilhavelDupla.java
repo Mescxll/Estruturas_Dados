@@ -1,4 +1,4 @@
-package pilha_dupla;
+package pilha_estatica.pilha_dupla;
 
 public interface EmpilhavelDupla { 
 	// Operações principais

@@ -1,4 +1,4 @@
-package pilha;
+package pilha_estatica.pilha;
 
 public class PilhaEstatica implements Empilhavel{
     private Object[] dados;

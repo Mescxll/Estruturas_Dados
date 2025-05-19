@@ -1,4 +1,4 @@
-package pilha_dupla;
+package pilha_estatica.pilha_dupla;
 
 public class PilhaEstaticaDupla implements EmpilhavelDupla{
     private Object[] dados;

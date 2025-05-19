@@ -1,4 +1,4 @@
-package pilha;
+package pilha_estatica.pilha;
 
 public interface Empilhavel { // Stackable
 	// Operações principais

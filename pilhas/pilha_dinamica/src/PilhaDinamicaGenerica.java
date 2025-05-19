@@ -24,7 +24,6 @@ public class PilhaDinamicaGenerica<T> implements Empilhavel<T> {
     public PilhaDinamicaGenerica(int tamanho){
         this.tamanho = tamanho;
         quantidade = 0;
-        ponteiroTopo = null;
     } 
 
     /**
@@ -45,6 +44,9 @@ public class PilhaDinamicaGenerica<T> implements Empilhavel<T> {
         if(estaCheia())
             throw new NoSuchElementException("Stack is Full!");
         NodoDuplo<T> novo = new NodoDuplo<>();
+        if (ponteiroTopo == null) {
+            ponteiroTopo = novo;
+        }
         novo.setDado(dado);
         novo.setAnterior(ponteiroTopo);
         ponteiroTopo.setProximo(novo);

@@ -1,4 +1,4 @@
-package pilha_invertida;
+package pilha_estatica.pilha_invertida;
 
 public class PilhaEstaticaInvertida implements EmpilhavelInvertida {
     private Object[] dados;
