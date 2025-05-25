@@ -1,3 +1,7 @@
+package main;
+
+import java.util.NoSuchElementException;
+
 /**
  * Código referente a implementação de uma pilha dinâmica genérica 
  * feito na aula de Estrutura de Dados.
@@ -5,11 +9,6 @@
  * @version 1.0
  * @since 2025-05-05
  */
-
-package main;
-
-import java.util.NoSuchElementException;
-
 public class PilhaDinamicaGenerica<T> implements Empilhavel<T> {
     private NodoDuplo<T> ponteiroTopo;
     private int quantidade;
