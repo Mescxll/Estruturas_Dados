@@ -2,5 +2,8 @@
 *.jar
 *.bak
 *.project
+*.classpath
 .vscode/
 /bin/
+doc/*
+!doc/main/
