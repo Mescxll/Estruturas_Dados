@@ -1,10 +1,7 @@
-package pilha_dinamica.test;
+package test;
 
-import pilha_dinamica.src.Empilhavel;
-import pilha_dinamica.src.PilhaDinamicaGenerica;
-import org.junit.Test;
-import static org.junit.Assert.*;
-
+import main.Empilhavel;
+import main.PilhaDinamicaGenerica;
 
 public class PilhaDinamicaGenericaTest {
     
