@@ -6,7 +6,7 @@
  * @since 2025-05-05
  */
 
-package pilha_dinamica.src;
+package main;
 
 import java.util.NoSuchElementException;
 

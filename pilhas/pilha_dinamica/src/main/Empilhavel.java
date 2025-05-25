@@ -1,4 +1,4 @@
-package pilha_dinamica.src;
+package main;
 
 public interface Empilhavel<T> { // Stackable
 	// Operações principais
