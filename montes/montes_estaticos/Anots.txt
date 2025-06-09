@@ -1,0 +1,53 @@
+Árvore Binária HEAP -> Completa a esquerda, nunca vai ter buracos a esquerda
+Elaboração de Filas de Prioridade
+
+Completa a esquerda:   
+        (A)             
+        / \                         
+    (B)     (C)        
+    /          
+(D)
+
+Não completa a esquerda:   
+        (A)
+        / \
+    (B)     (C)
+               \
+                (D) 
+
+MIN-HEAP -> Nó genitor menor ou igual do que seus filhos
+MAX-HEAP -> Nó genitor maior ou igual do que seus filhos 
+
+Ex de árvore:
+  
+        (A)    -> nó raiz               (B)
+        / \                             / \     -> Sub-árvore
+    (B)     (C) -> folha/filho        (D) (E)
+    / \         
+(D)    (E)
+
+HEAP
+-----------       Árvore
+|0|1|2|3|4|  ->     0
+-----------        / \
+                  1   2
+                 / \
+                3   4
+
+Ordenação
+-------------     Árvore         Ordenada    -------------
+|7|9|1|22|15|  ->   7               22  <-   |22|15|1|9|7|
+-------------      / \             /  \      -------------
+                  9   1           15   1
+                 / \             / \
+                22  15          9   7
+
+int indiceGenitor(int filho)    -> return (filho - 1) / 2
+int filhoEsquerdo(int pai)      -> return (pai * 2) + 1
+int filhoDireito(int pai)       -> return (pai * 2) + 2
+
+Teoria da Inserção e Remoção
+              |             \
+         baixo/cima      cima/baixo
+
+Remoção sempre da Raiz -> Põe o último no começo -> Ordena novamente
