@@ -1,6 +1,7 @@
 package main;
 
 import java.util.NoSuchElementException;
+import main.NodoDuplo;
 
 /**
  * Código referente a implementação de uma pilha dinâmica genérica 
