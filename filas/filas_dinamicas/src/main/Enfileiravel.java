@@ -1,4 +1,4 @@
-package filas_dinamicas;
+package main;
 
 public interface Enfileiravel<T>{
     void enfileirar(T dado);  

@@ -1,4 +1,4 @@
-package filas_dinamicas;
+package main;
 
 import java.util.Scanner;
 

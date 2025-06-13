@@ -1,6 +1,9 @@
+package test;
+
 import java.util.NoSuchElementException;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import main.*;
 
 public class FilaDinamicaGenericaTest {
 
@@ -8,7 +11,7 @@ public class FilaDinamicaGenericaTest {
   public void testFilaComDiferentesTipos() {
     Enfileiravel<Integer> filaInt = new FilaDinamicaGenerica<>();
     filaInt.enfileirar(1);
-    assertEquals(Integer.valueof(1),filaInt.frente());
+    assertEquals(Integer.valueOf(1),filaInt.frente());
 
     Enfileiravel<String> filaStr = new FilaDinamicaGenerica<>();
     filaStr.enfileirar("S");
@@ -127,3 +130,7 @@ public class FilaDinamicaGenericaTest {
   public void testLimpezaFila() {
   }
 }
+
+// javac -d bin (Get-ChildItem -Recurse -Filter "*.java" -Path src/main).FullName
+// javac -d bin -cp "bin;lib/*" src/test/FilaDinamicaGenericaTest.java
+// java -cp "bin;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore test.FilaDinamicaGenericaTest

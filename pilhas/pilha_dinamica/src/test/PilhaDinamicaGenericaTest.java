@@ -22,18 +22,5 @@ public class PilhaDinamicaGenericaTest {
     }
 }
 
-//compilar .jar na pasta bin: javac -cp "lib/*" -d bin src/*.java test/*.java
-
-//Meu
-//rodar testes: java -cp "lib/*;bin" org.junit.runner.JUnitCore pilha_dinamica.src.test.PilhaDinamicaGenericaTest
-//Claudio
-//executar teste: java -cp.;bin;test;lib;junit-4.10.jar org.junit.runner.JUnitCore PilhaDinamicaGenrericaTest
-
-//Compilar de Claudio
-// javac -cp .;bin;lib/junit-4.13.2.jar -d test test/PilhaDinamicaGenericaTest.java
-// Meu compilar
-// javac -cp ".;bin;lib/junit-4.13.2.jar" -d bin src/test/PilhaDinamicaGenericaTest.java
-
-// javac -cp ".;bin;lib/junit-4.13.2.jar" -d bin src/test/PilhaDinamicaGenericaTest.java
-
-// javac -cp ".;lib/junit-4.13.2.jar" -d bin src/test/PilhaDinamicaGenericaTest.java
+// javac -d bin -cp "bin;lib/*" src/test/PilhaDinamicaGenericaTest.java
+// java -cp "bin;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore test.PilhaDinamicaGenericaTest

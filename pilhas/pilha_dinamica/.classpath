@@ -1,5 +1,0 @@
-{
-    "java.project.sourcePaths": ["src", "test"],
-    "java.project.outputPath": "bin",
-    "java.project.classpath": ["lib/junit-4.13.2.jar"]
-}
