@@ -1,5 +1,7 @@
-public interface Amontoavel{
-    void inserir(Object dado);
+package main;
+
+public interface Amontoavel<T>{
+    void inserir(T dado);
     Object obterRaiz();
     Object extrair();
 

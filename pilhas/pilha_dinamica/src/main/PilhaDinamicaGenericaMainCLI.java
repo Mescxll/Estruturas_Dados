@@ -2,6 +2,11 @@ package main;
 
 import java.util.Scanner;
 
+/**
+ * Classe principal executável para testar funcionalidades da pilha
+ * 
+ * @author Maria Eduarda Campos
+ */
 public class PilhaDinamicaGenericaMainCLI {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

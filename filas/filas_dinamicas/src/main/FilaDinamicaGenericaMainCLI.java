@@ -2,6 +2,11 @@ package main;
 
 import java.util.Scanner;
 
+/**
+ * Classe principal executável para testar funcionalidades da fila
+ * 
+ * @author Maria Eduarda Campos
+ */
 public class FilaDinamicaGenericaMainCLI {
     public static void main(String[] args) {
         FilaDinamicaGenerica<String> fila = new FilaDinamicaGenerica<>(50);
@@ -23,12 +28,6 @@ public class FilaDinamicaGenericaMainCLI {
                 case 2:
                     fila.desenfileirar();
                     System.out.println("Dado desenfileirado!");
-                    break;
-                case 3:
-                    System.out.print("\nDigite o dado: ");
-                    String dado2 = sc.nextLine();
-                    fila.atualizarInicio(dado2);
-                    System.out.println("Dado Atualizado!");
                     break;
                 case 4:
                     System.out.print("\nDigite o dado: ");
@@ -56,7 +55,6 @@ public class FilaDinamicaGenericaMainCLI {
         System.out.println("\n---- FILA DINÂMICA GENÉRICA ----");
         System.out.println("1- Enfileirar");
         System.out.println("2- Desenfileirar");
-        System.out.println("3- Atualizar Inicio");
         System.out.println("4- Atualiza Fim");
         System.out.println("5- Espiar Frente");
         System.out.println("6- Imprimir");

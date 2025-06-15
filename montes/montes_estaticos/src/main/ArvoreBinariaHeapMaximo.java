@@ -1,112 +1,209 @@
+package main;
+
 import java.util.NoSuchElementException;
 
-public class ArvoreBinariaHeapMaximo implements Amontoavel{
-    private Object[] dados;
+/**
+ * Implementação da Estrutura Árvore Binária Máxima
+ * 
+ * @author Maria Eduarda Campos
+ * @since 09-06-2025
+ */
+public class ArvoreBinariaHeapMaximo<T> implements Amontoavel<T> {
+    private T[] dados;
     private int ponteiroFim;
 
-    public ArvoreBinariaHeapMaximo(int tamanho){
-        this.dados = new Object[tamanho];
-        this.ponteiroFim = -1;
+    /**
+     * Construtor
+     * 
+     * @param tamanho capacidade do árvore
+     */
+    public ArvoreBinariaHeapMaximo(int tamanho) {
+        dados = (T[]) new Object[tamanho];
+        ponteiroFim = -1;
     }
 
-    private int indicePai(int filho){
-        return (int) (filho-1)/2; 
+    /**
+     * Construtor Vazio
+     */
+    public ArvoreBinariaHeapMaximo() {
+        this(10);
     }
 
-    private void trocar(int i, int j){
-        Object temp = dados[i];
-        dados[i] = dados[j];
-        dados[j] = temp; 
+    /**
+     * Método para calcular o indice do pai de um nó
+     * 
+     * @param filho nó a ser analisado
+     * @return indice do pai
+     */
+    private int indicePai(int filho) {
+        return (filho - 1) / 2;
     }
 
-    private int indiceFilhoEsquerda(int pai) {
-                // TODO Auto-generated method stub
-                throw new UnsupportedOperationException("Unimplemented method 'indiceFilhoEsquerda'");
-    }
-
+    /**
+     * Método para calcular o indice do filho direito de um nó
+     * 
+     * @param pai nó a ser analisado
+     * @return indice do filho direito
+     */
     private int indiceFilhoDireito(int pai) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return (pai * 2) + 1;
     }
 
+    /**
+     * Método para calcular o indice do filho esquerdo de um nó
+     * 
+     * @param pai nó a ser analisado
+     * @return indice do filho esquerdo
+     */
+    private int indiceFilhoEsquerdo(int pai) {
+        return (pai * 2) + 2;
+    }
+
+    /**
+     * Método recursivo para ordernar a árvores de baixo para cima
+     * 
+     * @param indice posição de ajuste
+     */
+    private void ajustarAcimaRec(int indice) {
+        if (indice != 0) {
+            int indicePai = indicePai(indice);
+            if ((int) dados[indice] > (int) dados[indicePai])
+                trocar(indice, indice);
+            ajustarAcimaRec(indicePai);
+        }
+    }
+
+    /**
+     * Método não recursivo para ordernar a árvores de baixo para cima
+     * @param indice posição de ajuste
+     */
+    private void ajustarAcima(int indice) {
+        int indiceFilho = indice;
+        int indicePai;
+
+        while (indiceFilho != 0) {
+            indicePai = indicePai(indiceFilho);
+            if ((int) dados[indiceFilho] > (int) dados[indicePai]) {
+                trocar(indicePai, indiceFilho);
+            }
+            indiceFilho = indicePai;
+        }
+    }
+
+    /**
+     * Método não recursivo para ordernar a árvores de baixo para baixo
+     * 
+     * @param pai raiz da árvore
+     */
+    private void ajustarAbaixoRec(int pai) {
+        int esq = indiceFilhoDireito(pai);
+        int dir = indiceFilhoDireito(pai);
+        int indiceMaior = pai;
+        if ((int) dados[esq] > (int) dados[indiceMaior]) {
+            indiceMaior = esq;
+        }
+        if ((int) dados[dir] > (int) dados[indiceMaior]) {
+            indiceMaior = dir;
+        }
+
+        if (indiceMaior != pai) {
+            trocar(indiceMaior, pai);
+            ajustarAbaixoRec(indiceMaior);
+        }
+    }
+
+    /**
+     * Método para inserir dado na árvore
+     * @throws Exception se a árvore estiver cheia
+     */
     @Override
-    public void inserir(Object dado) {
-        if(estaCheia())
-            //throw new OverFlowException("Heap Cheia");
+    public void inserir(T dado) {
+        if (estaCheia())
+            throw new Exception("Heap is full!");
         ponteiroFim++;
         dados[ponteiroFim] = dado;
         ajustarAcima(ponteiroFim);
     }
 
+    /**
+     * Método para obter a raiz da árvore
+     * 
+     * @return raiz
+     * @throws NoSuchElementException se árvore estiver vazia
+     */
     @Override
-    public Object obterRaiz() {
-        if(estaVazia()){
-            throw  new NoSuchElementException("Heap Vazio");
+    public T obterRaiz() {
+        if (estaVazia()) {
+            throw new NoSuchElementException("Heap is empty!");
         }
-            return dados[0];
+        return dados[0];
     }
 
+    /**
+     * Método para extrair dado da árvore
+     * @return dado
+     * @throws Exception se a árvore estiver cheia
+     */
     @Override
-    public Object extrair() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    private void ajustarAcima(int filho) {
-        int indiceFilho = filho;
-        while(indiceFilho!=0){
-           int indicePai = indicePai(filho);
-            if((int) dados[indiceFilho] > (int) dados[indicePai]){
-                trocar(indiceFilho, indicePai);
-            } 
-            indiceFilho = indicePai;
-        }
-    }
-
-    private void ajustarAcimaRecursivo(int filho) {
-        if(filho!=0){
-            int indicePai = indicePai(filho);
-            if((int) dados[filho] > (int) dados[indicePai]){
-                trocar(filho, indicePai);
-            }
-            ajustarAcimaRecursivo(indicePai);
-        }
-    }
-    
-    private void ajustarAbaixoRec(int pai) {
-        int esq = indiceFilhoEsquerda(pai);
-        int dir = indiceFilhoDireito(pai);
-
-        int indiceMaior = pai;
-        if((int) dados[esq] > (int) dados[indiceMaior]){
-            indiceMaior = esq;
-        }
-        if((int) dados[dir] > (int) dados[indiceMaior]){
-            indiceMaior = dir;
+    public T extrair() {
+        T dadoRaiz = null;
+        if (estaVazia()) {
+            throw new Exception("Heap is full!");
         }
 
-        if(indiceMaior!=pai){
-            trocar(indiceMaior, pai);
-            ajustarAbaixoRec(pai);
-        }
-    }
-                
-    @Override
-    public boolean estaVazia() {
-        return ponteiroFim==-1;
+        dadoRaiz = dados[0];
+        dados[0] = dados[ponteiroFim];
+        ponteiroFim--;
+        ajustarAcima(ponteiroFim);
+        return dadoRaiz;
     }
 
-    @Override
-    public boolean estaCheia() {
-        return ponteiroFim == dados.length-1;
-    }
-
+    /**
+     * Método para imprimir conteúdo da árvore
+     * @return String com o conteúdo
+     */
     @Override
     public String imprimir() {
         String aux = "[";
+
         for (int i = 0; i <= ponteiroFim; i++) {
             aux += dados[i];
-            if(i!=ponteiroFim)
-                aux+=", ";
+            if (i != ponteiroFim) {
+                aux += ", ";
+            }
         }
-        return aux + "]";
+        return aux;
     }
+
+    /**
+     * Método que verifica se a árvore está vazia
+     * 
+     * @return true se estiver vazia e false caso contrário
+     */
+    @Override
+    public boolean estaVazia() {
+        return ponteiroFim == -1;
+    }
+
+    /**
+     * Método que verifica se a árvore está cheia
+     * 
+     * @return true se estiver cheia e false caso contrário
+     */
+    @Override
+    public boolean estaCheia() {
+        return ponteiroFim == dados.length - 1;
+    }
+
+    /**
+     * Método que troca dois elementos na árvore
+     * @param i primeiro elemento
+     * @param j segundo elemento
+     */
+    private void trocar(int i, int j) {
+        T temp = dados[i];
+        dados[i] = dados[j];
+        dados[j] = temp;
+    }
+
 }

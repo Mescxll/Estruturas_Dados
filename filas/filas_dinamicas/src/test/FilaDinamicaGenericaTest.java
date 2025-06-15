@@ -40,97 +40,159 @@ public class FilaDinamicaGenericaTest {
 
   @Test
   public void testEnfileirar() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>(2);
+    fila.enfileirar("A");
+    assertEquals("A", fila.frente());
+    assertFalse(fila.estaVazia());
+
+    fila.enfileirar("B");
+    assertEquals("A", fila.frente()); 
+    assertTrue(fila.estaCheia()); 
+
   }
 
   @Test
   public void testDesenfileirar() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    fila.enfileirar("A");
+    fila.enfileirar("B");
+    fila.desenfileirar();
+    assertEquals(fila.frente(), "B");
+    fila.desenfileirar();
+    assertTrue(fila.estaVazia());
   }
 
   @Test
   public void testDesenfileirarMultiplosElementos() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    fila.enfileirar("A");
+    fila.enfileirar("B");
+    fila.enfileirar("C");
+    fila.enfileirar("D");
+    fila.desenfileirar();
+    fila.desenfileirar();
+    fila.desenfileirar();
+    assertTrue(fila.frente() == "D");
+    fila.desenfileirar();
+    assertTrue(fila.estaVazia());
   }
 
   @Test
   public void testFrente() {
-  }
-
-  @Test
-  public void testAtualizarInicio() {
-  }
-
-  @Test
-  public void testAtualizarInicioComMultiplosElementos() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    fila.enfileirar("A");
+    fila.enfileirar("B");
+    assertEquals(fila.frente(),"A");
+    fila.desenfileirar();
+    assertEquals(fila.frente(),"B");
   }
 
   @Test
   public void testAtualizarFim() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    fila.enfileirar("A");
+    assertEquals("A", fila.frente()); 
+    fila.atualizarFim("Z");
+    assertEquals("Z", fila.frente()); 
+    fila.desenfileirar();
+    assertTrue(fila.estaVazia());
   }
 
   @Test
   public void testAtualizarFimComMultiplosElementos() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    fila.enfileirar("A");
+    fila.enfileirar("B");
+    fila.enfileirar("C"); 
+    assertEquals("A", fila.frente());
+    fila.atualizarFim("Y");
+    assertEquals("A", fila.frente());
+    fila.desenfileirar(); 
+    assertEquals("B", fila.frente());
+    fila.desenfileirar(); 
+    assertEquals("Y", fila.frente());
+    fila.desenfileirar();
+    assertTrue(fila.estaVazia());
   }
 
   @Test
-  public void testImprimirDeFrentePraTras() {
+  public void testImprimir() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    fila.enfileirar("A");
+    fila.enfileirar("B");
+    fila.enfileirar("C");
+    assertEquals("[A, B, C]", fila.imprimir());
   }
 
   @Test
-  public void testImprimirDeFrentePraTrasVaziaFormatacaoVazia() {
+  public void testImprimirFormatacaoVazia() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    assertEquals("[]", fila.imprimir());
   }
   
   @Test
-  public void testImprimirDeFrentePraTrasFormatacao() {
+  public void testImprimirFormatacao() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    fila.enfileirar("A");
+    assertEquals("[A]", fila.imprimir());
+    fila.desenfileirar(); 
+
+    fila.enfileirar("Item1");
+    fila.enfileirar("Item2");
+    fila.enfileirar("Item3");
+
+    assertEquals("[Item1, Item2, Item3]", fila.imprimir());
+    fila.desenfileirar(); 
+    assertEquals("[Item2, Item3]", fila.imprimir());
+    fila.desenfileirar(); 
+    assertEquals("[Item3]", fila.imprimir());
+    fila.desenfileirar(); 
+
+    assertEquals("[]", fila.imprimir());
   }
 
   @Test
   public void testEstaCheia() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>(1);
+    assertFalse(fila.estaCheia());
+    fila.enfileirar("A");
+    assertTrue(fila.estaCheia());
   }
   
   @Test
   public void testEstaVazia() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    assertTrue(fila.estaVazia());
+    fila.enfileirar("A");
+    assertFalse(fila.estaVazia());
   }
 
   @Test
   public void testFilaCheiaEnfileirar() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>(1); 
+    fila.enfileirar("A"); 
+    assertThrows(NoSuchElementException.class, () -> fila.enfileirar("B"));
   }
   
   @Test
   public void testFilaVaziaDesenfileirar() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    assertThrows(NoSuchElementException.class, () -> fila.desenfileirar());
   } 
 
   @Test
   public void testFilaVaziaFrente() {
-  }
-
-  @Test
-  public void testFilaVaziaAtualizarInicio() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>();
+    assertThrows(NoSuchElementException.class, () -> fila.frente());
   }
 
   @Test
   public void testFilaVaziaAtualizarFim() {
-  }
-  
-  @Test
-  public void testOperacaoNaoSuportadaEnfileirarInicio() {
-  }
-
-  @Test
-  public void testOperacaoNaoSuportadaDesenfileirarFim() {
-  }
-
-  @Test
-  public void testOperacaoNaoSuportadaTras() {
-  }
-
-  @Test
-  public void testOperacaoNaoSuportadaImprimirDeTrasPraFrente() {
-  }
-
-  @Test
-  public void testLimpezaFila() {
+    Enfileiravel<String> fila = new FilaDinamicaGenerica<>(); 
+    assertThrows(NoSuchElementException.class, () -> fila.atualizarFim("Y"));
   }
 }
 
 // javac -d bin (Get-ChildItem -Recurse -Filter "*.java" -Path src/main).FullName
 // javac -d bin -cp "bin;lib/*" src/test/FilaDinamicaGenericaTest.java
-// java -cp "bin;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore test.FilaDinamicaGenericaTest
+// java -cp "bin;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore test.FilaDinamicaGenericaTestjavac -d bin -cp "bin;lib/*" src/test/FilaDinamicaGenericaTest.java
