@@ -8,7 +8,7 @@ Repositório referente aos códigos produzidos na disciplina de Estrutura de Dad
 - Algoritmos de ordenação (Troca e Dividir para Conquistar)
 - Heap (Monte)
 - Árvores (Binárias de Busca, AVL, B e B+)
-
+  
 ### Índice
 📂[Pilhas Estáticas](https://github.com/Mescxll/Estruturas_Dados/tree/main/pilhas/pilha_estatica)
 
