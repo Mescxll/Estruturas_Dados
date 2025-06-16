@@ -1,0 +1,39 @@
+Tipo 1 - Convertido para Java
+
+
+Considerar o seguinte código como base para a resolução das Questões:  
+
+class QuestaoX {  
+    private int tamanho = 10; 
+    private NoDuplo ponteiroInicio = null; 
+    private NoDuplo ponteiroFim = null; 
+    private int quantidade = 0; 
+
+    public QuestaoX(int tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public QuestaoX() {
+        this(10);
+    }
+
+    public boolean estaCheia() { return quantidade == tamanho; } 
+    public boolean estaVazia() { return quantidade == 0; } 
+
+    //seu código 
+}
+
+Questões
+
+1. Apagar um dado numa posição lógica específica de uma ED Lista Dinâmica
+
+2. Imprimir os dados de uma ED Lista Dinâmica, a partir de uma posição lógica 
+específica informada pelo usuário, até o fim. 
+
+3. Implemente o método 'public int occurrences(Object data)' que retorne a 
+posição lógica da última ocorrência de um determinado dado em uma ED Lista 
+Dinâmica. 
+
+4. Faça uma função ajustarPrioridade para uma fila de prioridades usando Heap 
+Mínimo que receba um valor de prioridade inteira que pode ser repetida, e devolva 
+uma prioridade única baseada no relógio do computador. 
